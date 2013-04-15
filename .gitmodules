@@ -1,0 +1,6 @@
+[submodule "tern"]
+	path = tern
+	url = https://github.com/marijnh/tern
+[submodule "acorn"]
+	path = acorn
+	url = https://github.com/marijnh/acorn
