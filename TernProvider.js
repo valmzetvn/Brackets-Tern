@@ -29,10 +29,7 @@ define(function (require, exports, module) {
         fileLoader = require("FileLoader");
 
     var ternRequire = window.require.config({
-        "baseUrl": require.toUrl("./tern/"),
-        "paths": {
-            "acorn": "node_modules/acorn"
-        },
+        "baseUrl": require.toUrl("./lib"),
         waitSeconds: 5
     });
 
@@ -174,12 +171,12 @@ define(function (require, exports, module) {
         var _self = this;
         TernProvider.apply(_self, arguments);
 
-        ternRequire(["lib/tern", "plugin/requirejs", "plugin/node"], function(tern) {
+        ternRequire(["tern/lib/tern", "tern/plugin/requirejs", "tern/plugin/node"], function(tern) {
 
             //
             // Load up all the definitions that we will need to start with.
             //
-            require(["text!./reserved.json", "text!./tern/defs/ecma5.json", "text!./tern/defs/browser.json", "text!./tern/defs/jquery.json"], function() {
+            require(["text!./reserved.json", "text!./lib/tern/defs/ecma5.json", "text!./lib/tern/defs/browser.json", "text!./lib/tern/defs/jquery.json"], function() {
                 var defs = Array.prototype.slice.call(arguments, 0);
                 $.each(defs.slice(0), function(index, item){
                     defs[index] = JSON.parse(item);
